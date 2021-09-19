@@ -39,10 +39,11 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                 </li>
-                <!--Git repo and about links
+                
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    <a class="nav-link" target="_blank" href="https://github.com/denise626/Rewind">Git Repo</a>
                 </li>
+                <!--git repo and about links
                 <li class="nav-item">
                     <a class="nav-link" target="_blank" href="#">About</a>
                 </li>
@@ -59,15 +60,57 @@
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World
-                        function HelloWorld() {
-                            alert("hello World");
-                        }
+//Get the string from the page
+//controller function
+function getValue(){
+
+    document.getElementById("alert").classList.add("invisible");
+    
+    let userString = document.getElementById("userString").value;
+    
+    let revString = reverseString(userString);
+    
+    displayString(revString);
+}
+
+
+//Reverse the string
+//logic function
+function reverseString(userString){
+
+    let revString = [];
+
+    //last position in an array is name.length - 1
+
+    //reverse a string using a for loop
+    for (let index = userString.length - 1; index >= 0; index--) {
+        revString += userString[index];
+        
+    }
+
+//revString will add to itself on every iteration of this loop
+    
+    return revString;
+}
+
+
+//Display the message with the reversed string to the user
+//view function
+
+function displayString(revString){
+
+    //write to the page
+    document.getElementById("msg").innerHTML = `Your string reversed is: ${revString}`;
+    
+    //show the alert box
+    document.getElementById("alert").classList.remove("invisible");
+}
+                        
                     </code>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code is structured in one function.</p>
-                    <h5>Hello World</h5>
+                    <p>The Code for Rewind is structured in three functions.</p>
+                    <h5>Rewind Functions</h5>
                     <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
                 </div>
             </div>
